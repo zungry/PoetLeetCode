@@ -41,7 +41,7 @@ def getPage():
     request = urllib2.Request("https://leetcode.com/accounts/login/",values,headers=headers)
     url = opener.open(request)
     page = url.read()
-    print page
+    return page
 
 def saveCode(code,title):
     """将AC代码存储到本地"""
@@ -112,5 +112,9 @@ def findAc(page):
             findCode(myhost+page[start+9:finish],title)
         else:
             break
-getPage()
-findAc(page)
+def main():
+    page = getPage()
+    findAc(page)
+
+if __name__ = '__main__':
+    main()
